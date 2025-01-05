@@ -24,10 +24,10 @@ class SettingsHomeserverController extends State<SettingsHomeserver> {
     var federationBaseUrl = Uri(host: domain, port: 8448, scheme: 'https');
     try {
       final serverWellKnownResult = await httpClient.get(
-        Uri.https(domain, '/.well-known/matrix/server'),
+        Uri.http(domain, '/.well-known/matrix/server'),
       );
       final serverWellKnown = jsonDecode(serverWellKnownResult.body);
-      federationBaseUrl = Uri.https(serverWellKnown['m.server']);
+      federationBaseUrl = Uri.http(serverWellKnown['m.server']);
     } catch (e, s) {
       Logs().w(
         'Unable to fetch federation base uri. Use $federationBaseUrl',

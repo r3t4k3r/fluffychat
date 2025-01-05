@@ -114,14 +114,19 @@ class HomeserverPickerController extends State<HomeserverPicker> {
     });
 
     try {
+      print(homeserverInput);
       var homeserver = Uri.parse(homeserverInput);
       if (homeserver.scheme.isEmpty) {
-        homeserver = Uri.https(homeserverInput, '');
+        homeserver = Uri.http(homeserverInput, '');
       }
+      print("parse pass");
       final client = Matrix.of(context).getLoginClient();
+      print("client pass");
       final (_, _, loginFlows) = await client.checkHomeserver(homeserver);
+      print("check pass");
       this.loginFlows = loginFlows;
     } catch (e) {
+      print("catch $e");
       setState(
         () => error = (e).toLocalizedString(
           context,

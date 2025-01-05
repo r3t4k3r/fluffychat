@@ -105,7 +105,7 @@ class LoginController extends State<Login> {
     if (!userId.isValidMatrixId) return;
     final oldHomeserver = Matrix.of(context).getLoginClient().homeserver;
     try {
-      var newDomain = Uri.https(userId.domain!, '');
+      var newDomain = Uri.http(userId.domain!, '');
       Matrix.of(context).getLoginClient().homeserver = newDomain;
       DiscoveryInformation? wellKnownInformation;
       try {

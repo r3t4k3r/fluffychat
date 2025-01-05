@@ -194,7 +194,7 @@ class HomeserverPickerView extends StatelessWidget {
                                       actions: [
                                         AdaptiveDialogAction(
                                           onPressed: () => launchUrl(
-                                            Uri.https('servers.joinmatrix.org'),
+                                            Uri.http('servers.joinmatrix.org'),
                                           ),
                                           child: Text(
                                             L10n.of(context)

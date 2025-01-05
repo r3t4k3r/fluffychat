@@ -45,7 +45,7 @@ Widget markdownContextBuilder(
             if (urlString == null) return;
             final url = urlString.startsWith('http')
                 ? Uri.parse(urlString)
-                : Uri.https(urlString);
+                : Uri.http(urlString);
             final selection = controller.selection;
             controller.text = controller.text.replaceRange(
               selection.start,
